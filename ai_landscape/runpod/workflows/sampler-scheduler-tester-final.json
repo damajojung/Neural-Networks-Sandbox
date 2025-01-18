@@ -1,0 +1,730 @@
+{
+  "last_node_id": 32,
+  "last_link_id": 44,
+  "nodes": [
+    {
+      "id": 28,
+      "type": "SDXLEmptyLatentSizePicker+",
+      "pos": {
+        "0": 432,
+        "1": 378,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 340.20001220703125,
+        "1": 170
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            35
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLEmptyLatentSizePicker+"
+      },
+      "widgets_values": [
+        "1024x1024 (1.0)",
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1559,
+        "1": 19,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 36
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 13,
+      "type": "UNETLoader",
+      "pos": {
+        "0": 465,
+        "1": 237,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            34
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": -40,
+        "1": 25,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            32
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VAELoader",
+      "pos": {
+        "0": 1006,
+        "1": 318,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            13
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 2366,
+        "1": 15,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 740.9572143554688,
+        "1": 428.21307373046875
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 31,
+      "type": "SamplerSelectHelper+",
+      "pos": {
+        "0": 968,
+        "1": -793,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 682
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerSelectHelper+"
+      },
+      "widgets_values": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "id": 22,
+      "type": "SaveImage",
+      "pos": {
+        "0": 2145,
+        "1": 456,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 270.5103454589844,
+        "1": 314.7674255371094
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "comfy-real"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "TextEncodeForSamplerParams+",
+      "pos": {
+        "0": 377,
+        "1": -264,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 403.1999816894531,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeForSamplerParams+"
+      },
+      "widgets_values": [
+        "a tiger sitting on a table\n---\na man smiling\n---\na woman smiling and drinking a cup of coffee\n---\nUnder the graffiti-splashed walls of an abandoned skate park, the woman leans against a worn-out ramp, her dark, shoulder-length hair messily tied into a loose bun, with rebellious strands framing her face. She’s dressed in a cropped, faded band tee and ripped denim shorts, with a flannel shirt haphazardly tied around her waist. Her combat boots are scuffed, adding to the gritty vibe of her look. The late afternoon light casts long shadows across the park, giving the scene a gritty, urban feel. Her eyes, smudged with dark eyeliner, peer out through the mess of hair, giving her a daring, mischievous expression. It’s the kind of chaos that’s captivating, like she’s part of the city’s pulse, raw and unfiltered.\n---\nInside a long-forgotten high school, the woman stands in the middle of a deserted classroom, her hair gathered into a messy knot secured with small pins that catch the dim light filtering through broken windows. The soft, off-the-shoulder sweater she wears hangs loosely, paired with oversized, wide-legged pants that give her an effortlessly cool and modern silhouette. Desks are overturned, and faded posters peel off the walls, while rays of sunlight create streaks of light and shadow across the floor. Her smoky eyes, softened by the surrounding chaos, convey a mix of indifference and quiet contemplation. The camera captures her from a low angle, emphasizing the height of the empty, echoing space. The chalkboard behind her is smeared, adding to the sense of abandonment, while the soft, warm tones of her clothing stand out against the cold, desolate setting, creating a visually striking contrast.\n---"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "PlotParameters+",
+      "pos": {
+        "0": 1930,
+        "1": 25,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 327.5999755859375,
+        "1": 174
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        },
+        {
+          "name": "params",
+          "type": "SAMPLER_PARAMS",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39,
+            40
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PlotParameters+"
+      },
+      "widgets_values": [
+        "none",
+        "sampler",
+        7,
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "FluxSamplerParams+",
+      "pos": {
+        "0": 997.2819213867188,
+        "1": -26.72748565673828,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        327.5999755859375,
+        286
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 34
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 43
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 35
+        },
+        {
+          "name": "loras",
+          "type": "LORA_PARAMS",
+          "link": null
+        },
+        {
+          "name": "sampler",
+          "type": "STRING",
+          "link": 41,
+          "widget": {
+            "name": "sampler"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "STRING",
+          "link": 44,
+          "widget": {
+            "name": "scheduler"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "params",
+          "type": "SAMPLER_PARAMS",
+          "links": [
+            38
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxSamplerParams+"
+      },
+      "widgets_values": [
+        "1991",
+        "euler, deis",
+        "simple, sgm_uniform, beta, ddm_uniform",
+        "35",
+        "3.5",
+        "",
+        "",
+        "1.0"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "SchedulerSelectHelper+",
+      "pos": {
+        "0": 1377,
+        "1": -788,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 327.5999755859375,
+        "1": 202
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            44
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SchedulerSelectHelper+"
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    }
+  ],
+  "links": [
+    [
+      13,
+      16,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      32,
+      19,
+      0,
+      27,
+      0,
+      "CLIP"
+    ],
+    [
+      34,
+      13,
+      0,
+      26,
+      0,
+      "MODEL"
+    ],
+    [
+      35,
+      28,
+      0,
+      26,
+      2,
+      "LATENT"
+    ],
+    [
+      36,
+      26,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      37,
+      10,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      26,
+      1,
+      29,
+      1,
+      "SAMPLER_PARAMS"
+    ],
+    [
+      39,
+      29,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      29,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      31,
+      0,
+      26,
+      4,
+      "STRING"
+    ],
+    [
+      43,
+      27,
+      0,
+      26,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      44,
+      32,
+      0,
+      26,
+      5,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8954302432552425,
+      "offset": [
+        -127.95114609368733,
+        921.3900528027622
+      ]
+    }
+  },
+  "version": 0.4
+}
