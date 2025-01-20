@@ -1,0 +1,9 @@
+used_sampler:
+  - ipndm
+used_scheduler:
+  - ddim_uniform
+  - beta
+results: 
+  - looked at differenct ideas and stresstested these promts
+conclusion:
+  - looks good, but it need further refinements with noise injection 

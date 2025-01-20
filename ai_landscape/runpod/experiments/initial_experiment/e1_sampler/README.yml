@@ -1,0 +1,14 @@
+used_samplers:
+  - euler
+  - dpm_adaptive
+  - dpmpp_Sde_gpu
+  - ddpm
+  - ipndm
+  - imndm_v
+  - ddim
+results: 
+  - dpmpp_sde_gpu and ddpm do not work at all with this many steps and schedulers
+  - all other ondes are mostly the same
+  - you can see some differences in the close ups
+conclusion:
+  - lets perceed with ipndm - looks the best for me

@@ -1,0 +1,15 @@
+used_schedulers_with_sampler_ipndm:
+  - normal
+  - karras
+  - exponential
+  - sgm_uniform
+  - simple
+  - ddim_uniform
+  - beta
+results: 
+  - karras and exponential do not work under these conditions
+  - normal, sgm_uniform, simple are good and very similar
+  - ddim_uniform looks the most realistic to me with lots of details, but it is playful and contains variation
+  - beta is the second best to me - very realistic but not a playful as ddim_uniform
+conclusion:
+  - lets perceed with ddim_uniform & beta
