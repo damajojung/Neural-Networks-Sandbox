@@ -69,6 +69,7 @@ async def main():
     # Process prompts
     times = []
     for p in api_specs['promts']:
+        p = f"Klett & Balmer illustration style, {p}"
         print(p)
         a = time.time()
 
