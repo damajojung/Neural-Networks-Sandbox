@@ -7,11 +7,14 @@ import requests
 import random
 
 
-async def subscribe(prompt):
+async def subscribe(prompt, seed, latent_width ,latent_height):
     handler = await fal_client.submit_async(
-        "comfy/damajojung/e1nileanfal",
+        "comfy/damajojung/falniimgratioseed",
         arguments={
-            "prompt": prompt
+            "prompt": prompt,
+            "seed": seed,
+            "latent_width": latent_width,
+            "latent_height": latent_height
         },
     )
 
