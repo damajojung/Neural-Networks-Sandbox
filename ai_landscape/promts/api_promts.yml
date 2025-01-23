@@ -14,4 +14,14 @@ promts:
     - A minimalist composition featuring two hands gracefully intertwined against a soft, pastel sky. The hands should exhibit delicate details, showcasing elegant fingers and subtle skin tones. The background should be a smooth, uniform light blue, evoking a sense of tranquility and connection. Emphasize the beauty of human touch and the elegance of hand movements.
     - A dreamy and ethereal photograph of a person with short pastel pink hair, partially obscured by a translucent red fabric or material. The lighting is soft and diffused, creating a hazy and artistic effect. The subject’s face is partially hidden, adding mystery and abstraction. The colour palette emphasises warm tones of red and pink, blending seamlessly with light blue in the background. soft focus, contemporary fashion photography, ethereal aesthetic, pastel colours, cinematic lighting. artistic inspiration, experimental editorial style, hazy photography
     - editorial photography, an african woman's hand holding an orange, she has her nails painted in a vibrant orange color, reflective pink lake in the background, creative art direction
-
+aspect_ratios:
+  - aspect_ratio: "1_1"
+    width: 1024
+    height: 1024
+  - aspect_ratio: "16_9"
+    width: 1024
+    height: 576
+  - aspect_ratio: "4_5"
+    width: 1024
+    height: 1280
+        

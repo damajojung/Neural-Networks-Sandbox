@@ -4,6 +4,7 @@ import time
 import asyncio
 import fal_client
 import requests
+import random
 
 
 async def subscribe(prompt):
@@ -67,33 +68,50 @@ async def main():
         os.makedirs(img_path)
 
     # Process prompts
-    times = []
+    logs = []
     for p in api_specs['promts']:
-        p = f"Klett & Balmer illustration style, {p}"
+        # p = f"Klett & Balmer illustration style, {p}" # for lora key words
         print(p)
-        a = time.time()
 
-        # Call the subscribe function
-        image_url = await subscribe(prompt=p)
+        for ar in api_specs['aspect_ratios']:
+            img_ratio = ar["aspect_ratio"]
+            img_width = ar["width"]
+            img_height = ar["height"]
+            img_seed = random.randint(0, 1000000)
 
-        b = time.time()
-        elapsed_time = b - a
-        print(f"Inference Time: {round(elapsed_time, 1)} seconds")
-        times.append(elapsed_time)
+            a = time.time()
 
-        # Download and save the image
-        response = requests.get(image_url)
-        if response.status_code == 200:
-            output_file = f"output_image_{round(a)}.png"
-            with open(os.path.join(img_path, output_file), "wb") as f:
-                f.write(response.content)
-            print(f"Image saved as {output_file}")
-        else:
-            print(f"Failed to download the image. Status code: {response.status_code}")
+            # Call the subscribe function
+            image_url = await subscribe(
+                prompt = p,
+                seed = img_seed,
+                latent_width = img_width,
+                latent_height = img_height
+                )
+
+            b = time.time()
+            elapsed_time = b - a
+            print(f"Inference Time: {round(elapsed_time, 1)} seconds")
+            logs.append({"promt": p, 
+                         "seed": img_seed, 
+                         "img_width": img_width,
+                         "img_height": img_height,
+                         'img_ratio': img_ratio,
+                         "elapsed_time" : elapsed_time})
+
+            # Download and save the image
+            response = requests.get(image_url)
+            if response.status_code == 200:
+                output_file = f"img_{round(a)}.png"
+                with open(os.path.join(img_path, output_file), "wb") as f:
+                    f.write(response.content)
+                print(f"Image saved as {output_file}")
+            else:
+                print(f"Failed to download the image. Status code: {response.status_code}")
 
     # Save the inference times to the log file
     with open(os.path.join(logs_path, file_name_logs), "w") as file:
-        for item in times:
+        for item in logs:
             file.write(f"{item}\n")
 
 
