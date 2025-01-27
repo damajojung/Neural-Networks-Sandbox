@@ -73,14 +73,18 @@ async def main():
     # Process prompts
     logs = []
     for p in api_specs['promts']:
-        # p = f"Klett & Balmer illustration style, {p}" # for lora key words
+
+        # if you want to use a lora key word 
+        # p = f"Klett & Balmer illustration style, {p}"
         print(p)
+        # seed starts at 0 
+        img_seed = 0
 
         for ar in api_specs['aspect_ratios']:
             img_ratio = ar["aspect_ratio"]
             img_width = ar["width"]
             img_height = ar["height"]
-            img_seed = random.randint(0, 1000000)
+            img_seed = img_seed
 
             a = time.time()
 
@@ -111,6 +115,9 @@ async def main():
                 print(f"Image saved as {output_file}")
             else:
                 print(f"Failed to download the image. Status code: {response.status_code}")
+
+            
+            img_seed += 1
 
     # Save the inference times to the log file
     with open(os.path.join(logs_path, file_name_logs), "w") as file:
