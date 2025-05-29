@@ -1,2 +1,94 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pytest
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Pyre type checker
+.pyre/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Profiling
+*.lprof
+
+# Logs and local files
+*.log
+*.pot
+*.mo
+*.swp
+*.swo
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.pytest_cache/
+coverage-report/
+
+# dotenv
+*.env
+
+# macOS
+.DS_Store
+
+# Thumbnails
+thumbs.db
+
+# SQLite databases
+*.sqlite3
+
+# Local test databases
+db.sqlite3
+
 gen_ai/tokens.yml
 Neural-Networks-Sandbox/gen_ai/runpod/runpod_ssh_keys
