@@ -4,4 +4,8 @@ b = 20
 
 c = a + b
 
+d = c - 23
+
+print(d)
+
 # this is a test
